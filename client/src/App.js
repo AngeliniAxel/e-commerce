@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
+import images from './images/images';
 const axios = require('axios');
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <h1>{test && test[0].description}</h1>
+        <img src={images.T_SHIRT_PINK} height='200px' width='200px' />
         <Counter />
         <p>
           Edit <code>src/App.js</code> and save to reload.
