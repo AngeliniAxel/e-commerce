@@ -1,7 +1,6 @@
 import React from 'react';
-import { Card, Button, Container } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import img from '../../../images/images';
 import {
   selectProductsList,
   selectProductsStatus,
@@ -14,10 +13,11 @@ const Home = () => {
   const productStatus = useSelector(selectProductsStatus);
   return (
     <div className='wrapper'>
+      {productStatus === 'loading' && (
+        <Spinner animation='border' variant='success' />
+      )}
       {productStatus === 'succeeded' &&
-        productsList.data.map((item) => (
-          <Product key={item.id} product={item} />
-        ))}
+        productsList.map((item) => <Product key={item.id} product={item} />)}
     </div>
   );
 };

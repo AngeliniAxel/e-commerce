@@ -13,14 +13,14 @@
   }
 
   .card-button {
-    background-color: $white;
-    color: $dark;
-    border-color: $green;
+    background-color: $white !important;
+    color: $dark !important;
+    border-color: $green !important;
   }
 
   .card-button:hover {
-    background-color: $green;
+    background-color: $green !important;
     color: $dark;
-    border-color: $green;
+    border-color: $green !important;
   }
 }

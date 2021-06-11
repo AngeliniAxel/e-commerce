@@ -1,19 +1,15 @@
 import React from 'react';
-import {
-  Navbar as NavBarBootstrap,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-} from 'react-bootstrap';
+import { Navbar as NavBarBootstrap, NavDropdown } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Navbar.scss';
 
 const Navbar = () => {
   return (
-    <NavBarBootstrap expand='lg' className='nav'>
-      <NavBarBootstrap.Brand className='brand'>
-        E-Commerce App
+    <NavBarBootstrap fixed='top' expand='lg' className='nav'>
+      <NavBarBootstrap.Brand>
+        <Link className='brand' to='/'>
+          E-Commerce App
+        </Link>
       </NavBarBootstrap.Brand>
       <NavBarBootstrap.Toggle aria-controls='basic-navbar-nav' />
       <NavBarBootstrap.Collapse id='basic-navbar-nav'>

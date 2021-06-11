@@ -1,24 +1,22 @@
 import React from 'react';
-import { Card, Button, Container } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import img from '../../../images/images';
 import './Product.scss';
 
 const Product = ({ product }) => {
-  console.log(product);
   return (
-    <Card className='card' style={{ width: '18rem' }}>
-      <Card.Img variant='top' src={img[product.img]} />
-      <Card.Body className='card-body'>
-        <Card.Title className='card-title'>{product.name}</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button className='card-button' variant='primary'>
-          Go somewhere
-        </Button>
-      </Card.Body>
-    </Card>
+    <Link className='card-link' to={`product/${product.id}`}>
+      <Card className='card' style={{ width: '18rem' }}>
+        <Card.Img variant='top' src={img[product.img]} />
+        <Card.Body className='card-body'>
+          <Card.Title className='card-title'>
+            {product.name} {product.style} {product.color}
+          </Card.Title>
+          <Card.Text>{product.price}</Card.Text>
+        </Card.Body>
+      </Card>
+    </Link>
   );
 };
 

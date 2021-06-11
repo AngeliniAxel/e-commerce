@@ -3,8 +3,10 @@ import { useDispatch } from 'react-redux';
 import Navbar from './app/components/Navbar/Navbar';
 import Footer from './app/components/Footer/Footer';
 import Home from './app/components/Home/Home';
+import SingleProduct from './app/components/SingleProduct/SingleProduct';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { fetchProducts } from './slices/productsSlice';
+import { Switch, Route } from 'react-router-dom';
 
 function App() {
   const dispatch = useDispatch();
@@ -16,7 +18,10 @@ function App() {
   return (
     <div className='App'>
       <Navbar />
-      <Home />
+      <Switch>
+        <Route path='/product/:id' exact component={SingleProduct} />
+        <Route path='/' component={Home} />
+      </Switch>
       <Footer />
     </div>
   );
