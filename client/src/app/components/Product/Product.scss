@@ -1,0 +1,26 @@
+@import '../../variables.scss';
+
+.card {
+  margin: 15px 5px;
+
+  .card-body {
+    background-color: $dark;
+    color: $white;
+  }
+
+  .card-title {
+    color: $green;
+  }
+
+  .card-button {
+    background-color: $white;
+    color: $dark;
+    border-color: $green;
+  }
+
+  .card-button:hover {
+    background-color: $green;
+    color: $dark;
+    border-color: $green;
+  }
+}

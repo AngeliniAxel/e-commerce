@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.get('/api', async (req, res) => {
   try {
-    const test = await pool.query('SELECT * FROM test');
+    const test = await pool.query('SELECT * FROM products');
     res.send(test.rows);
   } catch (err) {
     console.error(err.message);

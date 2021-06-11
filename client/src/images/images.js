@@ -1,7 +1,19 @@
 import T_SHIRT_WHITE from './T_SHIRT_WHITE.jpg';
 import T_SHIRT_PINK from './T_SHIRT_PINK.jpg';
+import T_SHIRT_RED from './T_SHIRT_RED.jpg';
+import JEANS_BLUE from './JEANS_BLUE.jpg';
+import JEANS_BLACK from './JEANS_BLACK.jpg';
+import JOGGER_BLACK from './JOGGER_BLACK.jpg';
+import JACKET_RED from './JACKET_RED.jpg';
+import JACKET_BLUE from './JACKET_BLUE.jpg';
 
 export default {
   T_SHIRT_WHITE: T_SHIRT_WHITE,
   T_SHIRT_PINK: T_SHIRT_PINK,
+  T_SHIRT_RED: T_SHIRT_RED,
+  JEANS_BLACK: JEANS_BLACK,
+  JEANS_BLUE: JEANS_BLUE,
+  JOGGER_BLACK: JOGGER_BLACK,
+  JACKET_BLUE: JACKET_BLUE,
+  JACKET_RED: JACKET_RED,
 };

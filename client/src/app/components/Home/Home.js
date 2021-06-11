@@ -1,58 +1,23 @@
 import React from 'react';
 import { Card, Button, Container } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import img from '../../../images/images';
+import {
+  selectProductsList,
+  selectProductsStatus,
+} from '../../../slices/productsSlice';
+import Product from '../Product/Product';
 import './Home.scss';
 
 const Home = () => {
+  const productsList = useSelector(selectProductsList);
+  const productStatus = useSelector(selectProductsStatus);
   return (
     <div className='wrapper'>
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant='top' src={img.T_SHIRT_WHITE} />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Button variant='primary'>Go somewhere</Button>
-        </Card.Body>
-      </Card>
-
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant='top' src={img.T_SHIRT_WHITE} />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Button variant='primary'>Go somewhere</Button>
-        </Card.Body>
-      </Card>
-
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant='top' src={img.T_SHIRT_WHITE} />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Button variant='primary'>Go somewhere</Button>
-        </Card.Body>
-      </Card>
-
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant='top' src={img.T_SHIRT_WHITE} />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Button variant='primary'>Go somewhere</Button>
-        </Card.Body>
-      </Card>
+      {productStatus === 'succeeded' &&
+        productsList.data.map((item) => (
+          <Product key={item.id} product={item} />
+        ))}
     </div>
   );
 };
