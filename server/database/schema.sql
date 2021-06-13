@@ -28,3 +28,11 @@ INSERT INTO products (name, style, color, img, price, stock) VALUES ('Pants', 'j
 
 INSERT INTO products (name, style, color, img, price, stock) VALUES ('Jacket', 'bomber', 'blue', 'JACKET_BLUE', 60.00, 3);
 INSERT INTO products (name, style, color, img, price, stock) VALUES ('Jacket', 'hooded bomber', 'red', 'JACKET_RED', 60.00, 3);
+
+CREATE TABLE users (
+    id VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(25),
+    last_name VARCHAR(25),
+    img VARCHAR(256),
+    email VARCHAR(50)
+);
