@@ -1,0 +1,27 @@
+@import '../../variables.scss';
+
+.cart-wrapper {
+  position: relative;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buy-wrapper {
+  margin: 50px;
+  margin-bottom: 100px;
+  padding: 20px;
+  background-color: $dark;
+  border-radius: 5%;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .cart-wrapper {
+    flex-direction: column;
+  }
+}

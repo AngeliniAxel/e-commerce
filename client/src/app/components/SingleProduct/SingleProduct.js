@@ -19,7 +19,11 @@ const SingleProduct = () => {
     <div>
       {product !== undefined && (
         <div className='single-product-wrapper'>
-          <img className='img-product-single' src={img[product.img]} />
+          <img
+            className='img-product-single'
+            src={img[product.img]}
+            alt={product.name}
+          />
           <div className='product-details'>
             <h1>
               {product.name} {product.style} {product.color}

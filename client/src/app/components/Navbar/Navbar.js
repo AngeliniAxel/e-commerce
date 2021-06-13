@@ -3,6 +3,7 @@ import {
   Navbar as NavBarBootstrap,
   NavDropdown,
   Dropdown,
+  Button,
 } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -40,7 +41,9 @@ const Navbar = () => {
 
         <div className='right-side'>
           {user === null ? (
-            <button onClick={handleSignIn}>Sign In</button>
+            <Button variant='success' onClick={handleSignIn}>
+              Sign In
+            </Button>
           ) : (
             <Dropdown>
               <Dropdown.Toggle
@@ -58,7 +61,15 @@ const Navbar = () => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item>Cart</Dropdown.Item>
+                <Dropdown.Item>
+                  <Link
+                    style={{ 'text-decoration': 'none', color: 'green' }}
+                    to='/cart'
+                  >
+                    Cart
+                  </Link>
+                </Dropdown.Item>
+
                 <Dropdown.Item onClick={handleLogOut}>Log out</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
