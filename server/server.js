@@ -15,6 +15,13 @@ const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT || '5000';
 
 const app = express();
+app.use(
+  cors({
+    origin: 'http://localhost:3000', // allow to server to accept request from different origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // allow session cookie from browser to pass through
+  })
+);
 
 app.use(bodyParser.json());
 
@@ -27,13 +34,6 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(
-  cors({
-    origin: 'http://localhost:3000', // allow to server to accept request from different origin
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // allow session cookie from browser to pass through
-  })
-);
 
 app.use(cookieParser());
 
