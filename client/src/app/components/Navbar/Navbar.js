@@ -43,13 +43,22 @@ const Navbar = () => {
             <button onClick={handleSignIn}>Sign In</button>
           ) : (
             <Dropdown>
-              <Dropdown.Toggle variant='success' id='dropdown-basic'>
+              <Dropdown.Toggle
+                className='login-button'
+                variant='success'
+                id='dropdown-basic'
+              >
+                <img
+                  className='profile-img'
+                  src={user.img}
+                  alt='Profile img'
+                  height='25px'
+                />{' '}
                 {user.name}
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href='#/action-1'>Action</Dropdown.Item>
-                <Dropdown.Item href='#/action-2'>Another action</Dropdown.Item>
+                <Dropdown.Item>Cart</Dropdown.Item>
                 <Dropdown.Item onClick={handleLogOut}>Log out</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
