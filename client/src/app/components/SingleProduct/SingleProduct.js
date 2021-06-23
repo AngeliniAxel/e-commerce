@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { selectProductsList } from '../../../slices/productsSlice';
 import img from '../../../images/images';
 import './SingleProduct.scss';
@@ -14,14 +14,20 @@ const SingleProduct = () => {
   const [product, setProduct] = useState(undefined);
   const [quantity, setQuantity] = useState(1);
   const productsList = useSelector(selectProductsList);
+  const history = useHistory();
 
   const handleAddToCart = async () => {
-    const data = await axios.post(`http://localhost:5000/api/cart/${user.id}`, {
+    const cartData = await axios.get(
+      `http://localhost:5000/api/cart/${user.id}`
+    );
+    const cartId = cartData.data[0].id;
+
+    const data = await axios.post(`http://localhost:5000/api/cart/${cartId}`, {
       product_id: product.id,
       quantity: quantity,
       price_each: product.price,
     });
-    console.log(data);
+    history.replace('/cart');
   };
 
   useEffect(() => {
