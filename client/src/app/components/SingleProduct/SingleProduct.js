@@ -44,7 +44,7 @@ const SingleProduct = () => {
             <h1>
               {product.name} {product.style} {product.color}
             </h1>
-            <h3>Price: {product.price}</h3>
+            <h3>Price: ${product.price * quantity},00</h3>
             <div className='qty'>
               <span>Quantity: </span>
               <select

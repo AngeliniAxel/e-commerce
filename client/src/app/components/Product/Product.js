@@ -13,7 +13,7 @@ const Product = ({ product }) => {
           <Card.Title className='card-title'>
             {product.name} {product.style} {product.color}
           </Card.Title>
-          <Card.Text>{product.price}</Card.Text>
+          <Card.Text>${product.price},00</Card.Text>
         </Card.Body>
       </Card>
     </Link>

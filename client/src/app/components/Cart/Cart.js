@@ -17,14 +17,14 @@ const Cart = () => {
   useEffect(() => {
     console.log(cart);
     if (cart.length > 0) {
-      setTotalQty(
-        cart.reduce((itemA, itemB) => itemA.quantity + itemB.quantity)
-      );
+      const qty = cart.reduce((acc, item) => {
+        return acc + item.quantity;
+      }, 0);
+      setTotalQty(qty);
       setTotalPrice(
-        cart.reduce(
-          (itemA, itemB) =>
-            itemA.quantity * itemA.price + itemB.quantity * itemB.price
-        )
+        cart.reduce((acc, item) => {
+          return acc + item.quantity * item.price;
+        }, 0)
       );
     }
   }, [cart]);
@@ -45,7 +45,6 @@ const Cart = () => {
       dispatch(setCart(cart.data.rows));
     };
     if (user !== null) {
-      console.log(user);
       fetchCart();
     }
   }, [dispatch, user]);
@@ -79,7 +78,7 @@ const Cart = () => {
                       <td>
                         {item.name} {item.style} {item.color}
                       </td>
-                      <td>{item.price}</td>
+                      <td>${item.price},00</td>
                       <td>{item.quantity}</td>
                       <td>
                         <Button variant='success'>delete</Button>
@@ -94,7 +93,7 @@ const Cart = () => {
             <h1>
               Subtotal ({totalQty} {totalQty > 1 ? 'items' : 'item'})
             </h1>
-            <h3>Price: {totalPrice}</h3>
+            <h3>Price: ${totalPrice},00</h3>
             <Button className='btn-to-cart'>
               <span style={{ fontWeight: 'bold' }}>Buy</span> (not really, just
               and academic project)
