@@ -63,7 +63,7 @@ const Navbar = () => {
               <Dropdown.Menu>
                 <Dropdown.Item>
                   <Link
-                    style={{ 'text-decoration': 'none', color: 'green' }}
+                    style={{ textDecoration: 'none', color: 'green' }}
                     to='/cart'
                   >
                     Cart

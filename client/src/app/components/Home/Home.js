@@ -1,35 +1,35 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Spinner } from 'react-bootstrap';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   selectProductsList,
   selectProductsStatus,
 } from '../../../slices/productsSlice';
-import { setUserData } from '../../../slices/userSlice';
 import Product from '../Product/Product';
 import './Home.scss';
 
 const Home = () => {
-  const dispatch = useDispatch();
+  /*   const dispatch = useDispatch();
+
+  const fetchUserData = async () => {
+    const data = await fetch('http://localhost:5000/auth/login/success', {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Credentials': true,
+      },
+    }).then((response) => {
+      if (response.status === 200) return response.json();
+      throw new Error('failed to authenticate user');
+    });
+    dispatch(setUserData(data.user));
+  };
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      const data = await fetch('http://localhost:5000/auth/login/success', {
-        method: 'GET',
-        credentials: 'include',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Credentials': true,
-        },
-      }).then((response) => {
-        if (response.status === 200) return response.json();
-        throw new Error('failed to authenticate user');
-      });
-      dispatch(setUserData(data.user));
-    };
     fetchUserData();
-  }, []);
+  }, []); */
 
   const productsList = useSelector(selectProductsList);
   const productStatus = useSelector(selectProductsStatus);

@@ -5,7 +5,8 @@ const Footer = () => {
   return (
     <div className='footer'>
       <p>
-        Want to see the code? <a href=''>Click here!</a>
+        Want to see the code?{' '}
+        <a href='https://github.com/AngeliniAxel'>Click here!</a>
       </p>
     </div>
   );

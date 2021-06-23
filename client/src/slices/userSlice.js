@@ -4,26 +4,7 @@ export const userSlice = createSlice({
   name: 'user',
   initialState: {
     userData: null,
-    cart: [
-      {
-        id: 2,
-        name: 'T-shirt',
-        style: 'crewneck',
-        color: 'pink',
-        img: 'T_SHIRT_PINK',
-        price: '12',
-        quantity: 2,
-      },
-      {
-        id: 7,
-        name: 'T-Jacket',
-        style: 'bomber',
-        color: 'blue',
-        img: 'JACKET_BLUE',
-        price: '60',
-        quantity: 1,
-      },
-    ],
+    cart: [],
   },
   reducers: {
     setUserData: (state, action) => {

@@ -36,3 +36,16 @@ CREATE TABLE users (
     img VARCHAR(256),
     email VARCHAR(50)
 );
+
+CREATE TABLE carts (
+    id SERIAL PRIMARY KEY,
+    user_id VARCHAR(50) REFERENCES users(id)
+);
+
+CREATE TABLE cart_products (
+    cart_id INTEGER REFERENCES carts(id),
+    product_id INTEGER REFERENCES products(id),
+    quantity INTEGER,
+    price_each MONEY,
+    PRIMARY KEY (cart_id, product_id)
+);

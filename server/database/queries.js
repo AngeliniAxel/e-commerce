@@ -1,3 +1,4 @@
+const { use } = require('../routes/auth-routes');
 const pool = require('./db');
 
 const findUserById = async (id) => {
@@ -23,6 +24,27 @@ const findOrCreateUser = async (id, name, last_name, img, email) => {
   }
 };
 
-const queries = { findUserById, findOrCreateUser };
+const findOrCreateCart = async (userId) => {
+  try {
+    const fetchedCart = await pool.query(
+      'SELECT * FROM carts WHERE user_id = $1',
+      [userId]
+    );
+    if (fetchedCart.rowCount) {
+      return fetchedCart.rows;
+    } else {
+      await pool.query('INSERT INTO carts (user_id) VALUES ($1)', [userId]);
+      const createdCart = await pool.query(
+        'SELECT * FROM carts WHERE user_id = $1',
+        [userId]
+      );
+      return createdCart.rows;
+    }
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
+const queries = { findUserById, findOrCreateUser, findOrCreateCart };
 
 module.exports = queries;

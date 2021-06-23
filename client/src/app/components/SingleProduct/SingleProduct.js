@@ -5,16 +5,32 @@ import { selectProductsList } from '../../../slices/productsSlice';
 import img from '../../../images/images';
 import './SingleProduct.scss';
 import { Button } from 'react-bootstrap';
+import axios from 'axios';
+import { selectUserData } from '../../../slices/userSlice';
 
 const SingleProduct = () => {
   const { id } = useParams();
+  const user = useSelector(selectUserData);
   const [product, setProduct] = useState(undefined);
+  const [quantity, setQuantity] = useState(1);
   const productsList = useSelector(selectProductsList);
 
+  const handleAddToCart = async () => {
+    const data = await axios.post(`http://localhost:5000/api/cart/${user.id}`, {
+      product_id: product.id,
+      quantity: quantity,
+      price_each: product.price,
+    });
+    console.log(data);
+  };
+
   useEffect(() => {
-    const fetchedProduct = productsList.find((item) => item.id == id);
+    const fetchedProduct = productsList.find(
+      (item) => item.id === parseInt(id)
+    );
     setProduct(fetchedProduct);
-  }, [productsList]);
+  }, [id, productsList]);
+
   return (
     <div>
       {product !== undefined && (
@@ -31,7 +47,14 @@ const SingleProduct = () => {
             <h3>Price: {product.price}</h3>
             <div className='qty'>
               <span>Quantity: </span>
-              <select name='select'>
+              <select
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  setQuantity(e.target.value);
+                }}
+                name='select'
+                value={quantity}
+              >
                 {[...Array(product.stock).keys()].map((num) => (
                   <option key={num + 1} value={num + 1}>
                     {num + 1}
@@ -40,7 +63,9 @@ const SingleProduct = () => {
               </select>
             </div>
 
-            <Button className='btn-to-cart'>Add to Cart</Button>
+            <Button onClick={handleAddToCart} className='btn-to-cart'>
+              Add to Cart
+            </Button>
           </div>
         </div>
       )}
