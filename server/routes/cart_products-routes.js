@@ -10,4 +10,29 @@ router.get('/:cartid', async (req, res) => {
   res.send(cart);
 });
 
+router.post('/:cartId', async (req, res) => {
+  try {
+    const { product_id, quantity, price_each } = req.body;
+    const data = await pool.query(
+      'INSERT INTO cart_products VALUES ($1, $2, $3, $4)',
+      [req.params.cartId, product_id, quantity, price_each]
+    );
+    res.send(data);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+router.delete('/:productId', async (req, res) => {
+  try {
+    const data = await pool.query(
+      'DELETE FROM cart_products WHERE product_id = $1',
+      [req.params.productId]
+    );
+    res.send(data);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 module.exports = router;

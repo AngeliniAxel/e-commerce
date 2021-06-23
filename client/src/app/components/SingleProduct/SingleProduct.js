@@ -22,7 +22,7 @@ const SingleProduct = () => {
     );
     const cartId = cartData.data[0].id;
 
-    const data = await axios.post(`http://localhost:5000/api/cart/${cartId}`, {
+    await axios.post(`http://localhost:5000/api/cart_products/${cartId}`, {
       product_id: product.id,
       quantity: quantity,
       price_each: product.price,
