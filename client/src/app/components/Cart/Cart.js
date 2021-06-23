@@ -59,65 +59,72 @@ const Cart = () => {
 
   return (
     <div>
-      {cart !== undefined && (
-        <div className='cart-wrapper'>
-          <div>
-            {cart.length > 0 ? (
-              <Table striped bordered hover>
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Item</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cart.map((item) => {
-                    return (
-                      <tr key={item.id}>
-                        <td>
-                          <img
-                            src={img[item.img]}
-                            alt={item.name}
-                            height='100px'
-                          />
-                        </td>
-                        <td>
-                          {item.name} {item.style} {item.color}
-                        </td>
-                        <td>${item.price},00</td>
-                        <td>{item.quantity}</td>
-                        <td>
-                          <Button
-                            value={item.id}
-                            onClick={handleDeteleClick}
-                            variant='success'
-                          >
-                            delete
-                          </Button>
-                        </td>
+      {' '}
+      {user ? (
+        <div>
+          {cart !== undefined && (
+            <div className='cart-wrapper'>
+              <div>
+                {cart.length > 0 ? (
+                  <Table striped bordered hover>
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th></th>
                       </tr>
-                    );
-                  })}
-                </tbody>
-              </Table>
-            ) : (
-              <h2>Cart empty</h2>
-            )}
-          </div>
-          <div className='buy-wrapper'>
-            <h1>
-              Subtotal ({totalQty} {totalQty > 1 ? 'items' : 'item'})
-            </h1>
-            <h3>Price: ${totalPrice},00</h3>
-            <Button className='btn-to-cart'>
-              <span style={{ fontWeight: 'bold' }}>Buy</span> (not really, just
-              and academic project)
-            </Button>
-          </div>
+                    </thead>
+                    <tbody>
+                      {cart.map((item) => {
+                        return (
+                          <tr key={item.id}>
+                            <td>
+                              <img
+                                src={img[item.img]}
+                                alt={item.name}
+                                height='100px'
+                              />
+                            </td>
+                            <td>
+                              {item.name} {item.style} {item.color}
+                            </td>
+                            <td>${item.price},00</td>
+                            <td>{item.quantity}</td>
+                            <td>
+                              <Button
+                                value={item.id}
+                                onClick={handleDeteleClick}
+                                variant='success'
+                              >
+                                delete
+                              </Button>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </Table>
+                ) : (
+                  <h2>Cart empty</h2>
+                )}
+              </div>
+              <div className='buy-wrapper'>
+                <h1>
+                  Subtotal ({totalQty} {totalQty > 1 ? 'items' : 'item'})
+                </h1>
+                <h3>Price: ${totalPrice},00</h3>
+                <Button className='btn-to-cart'>
+                  <span style={{ fontWeight: 'bold' }}>Buy</span> (not really,
+                  just and academic project)
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
+      ) : (
+        window.open('http://localhost:5000/auth/google', '_self')
       )}
     </div>
   );

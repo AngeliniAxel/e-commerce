@@ -13,11 +13,32 @@ router.get('/:cartid', async (req, res) => {
 router.post('/:cartId', async (req, res) => {
   try {
     const { product_id, quantity, price_each } = req.body;
-    const data = await pool.query(
-      'INSERT INTO cart_products VALUES ($1, $2, $3, $4)',
-      [req.params.cartId, product_id, quantity, price_each]
+
+    //find the product with that cartId and product_id-
+    const fetchedProduct = await pool.query(
+      'SELECT * FROM public.cart_products WHERE cart_id = $1 AND product_id = $2;',
+      [req.params.cartId, product_id]
     );
-    res.send(data);
+
+    //if it dont exist, creates it
+    if (!fetchedProduct.rowCount) {
+      const data = await pool.query(
+        'INSERT INTO cart_products VALUES ($1, $2, $3, $4)',
+        [req.params.cartId, product_id, quantity, price_each]
+      );
+      res.send('no se encontro');
+    } else {
+      // if it exists, updates its quantity
+      const newQty =
+        parseInt(fetchedProduct.rows[0].quantity) + parseInt(quantity);
+
+      const data = await pool.query(
+        'UPDATE public.cart_products SET quantity = $1 WHERE cart_id = $2 AND product_id = $3;',
+        [newQty, req.params.cartId, product_id]
+      );
+
+      res.sendStatus(202);
+    }
   } catch (err) {
     console.error(err.message);
   }
