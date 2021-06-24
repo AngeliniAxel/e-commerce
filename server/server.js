@@ -6,12 +6,11 @@ const passport = require('passport');
 const session = require('express-session');
 const authRoutes = require('./routes/auth-routes');
 const cartRoutes = require('./routes/cart_routes');
-const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 require('./config/passport-setup');
-const queries = require('./database/queries');
 const cookieParser = require('cookie-parser');
 const cart_productsRoutes = require('./routes/cart_products-routes');
+require('dotenv').config();
 
 const PORT = process.env.PORT || '5000';
 
@@ -29,7 +28,7 @@ app.use(bodyParser.json());
 app.use(
   cookieSession({
     name: 'ecommerce-session',
-    keys: ['key1', 'key2'],
+    keys: [process.env.COOKIE_KEY1, process.env.COOKIE_KEY1],
   })
 );
 

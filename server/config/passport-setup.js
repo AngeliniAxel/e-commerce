@@ -1,6 +1,5 @@
 const passport = require('passport');
-const keys = require('./keys');
-const queries = require('../database/queries');
+require('dotenv').config();
 
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const { findOrCreateUser } = require('../database/queries');
@@ -16,8 +15,8 @@ passport.deserializeUser(async (user, done) => {
 passport.use(
   new GoogleStrategy(
     {
-      clientID: keys.GOOGLE_CONSUMER_ID,
-      clientSecret: keys.GOOGLE_CONSUMER_SECRET,
+      clientID: process.env.GOOGLE_CONSUMER_ID,
+      clientSecret: process.env.GOOGLE_CONSUMER_SECRET,
       callbackURL: 'http://localhost:5000/auth/google/callback',
     },
     async (accessToken, refreshToken, profile, done) => {
