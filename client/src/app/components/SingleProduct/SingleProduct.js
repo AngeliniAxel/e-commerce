@@ -59,7 +59,6 @@ const SingleProduct = () => {
               <span>Quantity: </span>
               <select
                 onChange={(e) => {
-                  console.log(e.target.value);
                   setQuantity(e.target.value);
                 }}
                 name='select'

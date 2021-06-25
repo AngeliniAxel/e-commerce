@@ -5,13 +5,15 @@ import {
   Dropdown,
   Button,
 } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { selectProductsFilter, setFilter } from '../../../slices/productsSlice';
 import { selectUserData } from '../../../slices/userSlice';
 import './Navbar.scss';
 
 const Navbar = () => {
   const user = useSelector(selectUserData);
+  const dispatch = useDispatch();
 
   const handleSignIn = async () => {
     window.open('http://localhost:5000/auth/google', '_self');
@@ -19,6 +21,11 @@ const Navbar = () => {
 
   const handleLogOut = async () => {
     window.open('http://localhost:5000/auth/logout', '_self');
+  };
+
+  const handleFilterChange = (e) => {
+    console.log(e.target.value);
+    dispatch(setFilter(e.target.value));
   };
 
   return (
@@ -31,12 +38,38 @@ const Navbar = () => {
       <NavBarBootstrap.Toggle aria-controls='basic-navbar-nav' />
       <NavBarBootstrap.Collapse id='basic-navbar-nav'>
         <NavDropdown bsPrefix='dropdown' className='dropdown' title='Filter'>
-          <NavDropdown.Item className='dropdown-item'>All</NavDropdown.Item>
-          <NavDropdown.Item className='dropdown-item'>
+          <NavDropdown.Item
+            onClick={handleFilterChange}
+            value='all'
+            className='dropdown-item'
+            as='button'
+          >
+            All
+          </NavDropdown.Item>
+          <NavDropdown.Item
+            value='T-shirt'
+            onClick={handleFilterChange}
+            className='dropdown-item'
+            as='button'
+          >
             T-shirts
           </NavDropdown.Item>
-          <NavDropdown.Item className='dropdown-item'>Pants</NavDropdown.Item>
-          <NavDropdown.Item className='dropdown-item'>Jackets</NavDropdown.Item>
+          <NavDropdown.Item
+            onClick={handleFilterChange}
+            value='Pants'
+            className='dropdown-item'
+            as='button'
+          >
+            Pants
+          </NavDropdown.Item>
+          <NavDropdown.Item
+            onClick={handleFilterChange}
+            value='Jacket'
+            className='dropdown-item'
+            as='button'
+          >
+            Jackets
+          </NavDropdown.Item>
         </NavDropdown>
 
         <div className='right-side'>
