@@ -40,7 +40,7 @@ router.get(
   })
 );
 
-// redirect to home page after successfully login via twitter
+// redirect to home page after successfully login via Google
 router.get(
   '/google/callback',
   passport.authenticate('google', { failureRedirect: '/auth/login/failed' }),

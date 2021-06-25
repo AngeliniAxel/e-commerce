@@ -20,6 +20,7 @@ passport.use(
       callbackURL: 'http://localhost:5000/auth/google/callback',
     },
     async (accessToken, refreshToken, profile, done) => {
+      //Find the user, if it doesnt exist, creates it
       const user = await findOrCreateUser(
         profile._json.sub,
         profile._json.given_name,
