@@ -6,7 +6,13 @@ const Footer = () => {
     <div className='footer'>
       <p>
         Want to see the code?{' '}
-        <a href='https://github.com/AngeliniAxel'>Click here!</a>
+        <a
+          href='https://github.com/AngeliniAxel/ecommerceApp'
+          rel='noreferrer'
+          target='_blank'
+        >
+          Click here!
+        </a>
       </p>
     </div>
   );
