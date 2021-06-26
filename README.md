@@ -6,16 +6,15 @@
 
 ### Folder structure
 
-- Client
+ - Client
     - src
         - app
             - components
         - images
         - slices
-- Server
-    - Config (for passport
-    - database
-    - routes
+- Config (for passport)
+- database
+- routes
 
 
 ---
