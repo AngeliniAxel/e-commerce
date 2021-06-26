@@ -1,6 +1,24 @@
 # A simple e-commerce web-app using the PERN stack (Postgres, Express, React, Node.js)
 
-This project is developed as an assignment for the Codecademy Full Stack Engineering Path.
+## This project is developed as an assignment for the Codecademy Full Stack Engineering Path.
+
+
+
+### Folder structure
+
+- Client
+    - src
+        - app
+            - components
+        - images
+        - slices
+- Server
+    - Config (for passport
+    - database
+    - routes
+
+
+---
 
 ### Routes
 
@@ -28,7 +46,9 @@ This project is developed as an assignment for the Codecademy Full Stack Enginee
         - To put a product in the cart or update his quantity if it already exists
     - /api/cart_products/:productId - DELETE
         - deletes a product from the cart
-        
+   
+---
+   
 ### Database
 
 Postgres database living inside Heroku
