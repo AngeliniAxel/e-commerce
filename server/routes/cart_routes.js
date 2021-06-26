@@ -8,6 +8,4 @@ router.get('/:userid', async (req, res) => {
   res.send(cart);
 });
 
-//set a product with an id cart
-
 module.exports = router;

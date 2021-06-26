@@ -32,7 +32,7 @@ router.get('/logout', (req, res) => {
   res.redirect(CLIENT_HOME_PAGE_URL);
 });
 
-// auth with twitter
+// auth with Google
 router.get(
   '/google',
   passport.authenticate('google', {
