@@ -33,4 +33,4 @@ This project is developed as an assignment for the Codecademy Full Stack Enginee
 
 Postgres database living inside Heroku
 
-![database squema squema](/server/database/squema.jpg)
+![database squema squema](/server/database/squema.jpeg)
