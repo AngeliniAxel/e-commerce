@@ -11,17 +11,23 @@ require('./config/passport-setup');
 const cookieParser = require('cookie-parser');
 const cart_productsRoutes = require('./routes/cart_products-routes');
 require('dotenv').config();
+const path = require('path');
 
 const PORT = process.env.PORT || '5000';
 
 const app = express();
 app.use(
   cors({
-    origin: 'http://localhost:3000', // allow to server to accept request from different origin
+    'Access-Control-Allow-Origin': '*',
+    origin: '*', // allow to server to accept request from different origin
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // allow session cookie from browser to pass through
   })
 );
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+}
 
 app.use(bodyParser.json());
 

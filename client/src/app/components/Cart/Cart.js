@@ -30,15 +30,11 @@ const Cart = () => {
 
   const fetchCart = async () => {
     //find de cart id
-    const cartData = await axios.get(
-      `http://localhost:5000/api/cart/${user.id}`
-    );
+    const cartData = await axios.get(`/api/cart/${user.id}`);
     const cartId = cartData.data[0].id;
 
     //with the id, select the cart in the other table, with the products id
-    const cart = await axios.get(
-      `http://localhost:5000/api/cart_products/${cartId}`
-    );
+    const cart = await axios.get(`/api/cart_products/${cartId}`);
 
     dispatch(setCart(cart.data.rows));
   };
@@ -51,9 +47,7 @@ const Cart = () => {
   }, [dispatch, user]);
 
   const handleDeteleClick = async ({ target }) => {
-    await axios.delete(
-      `http://localhost:5000/api/cart_products/${target.value}`
-    );
+    await axios.delete(`/api/cart_products/${target.value}`);
     fetchCart();
   };
 

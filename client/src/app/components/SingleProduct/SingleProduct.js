@@ -18,19 +18,17 @@ const SingleProduct = () => {
 
   const handleAddToCart = async () => {
     if (user) {
-      const cartData = await axios.get(
-        `http://localhost:5000/api/cart/${user.id}`
-      );
+      const cartData = await axios.get(`/api/cart/${user.id}`);
       const cartId = cartData.data[0].id;
 
-      await axios.post(`http://localhost:5000/api/cart_products/${cartId}`, {
+      await axios.post(`/api/cart_products/${cartId}`, {
         product_id: product.id,
         quantity: quantity,
         price_each: product.price,
       });
       history.replace('/cart');
     } else {
-      window.open('http://localhost:5000/auth/google', '_self');
+      window.open('/auth/google', '_self');
     }
   };
 

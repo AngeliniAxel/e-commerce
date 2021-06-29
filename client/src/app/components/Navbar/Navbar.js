@@ -7,15 +7,16 @@ import {
 } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { selectProductsFilter, setFilter } from '../../../slices/productsSlice';
-import { selectUserData } from '../../../slices/userSlice';
+import { setFilter } from '../../../slices/productsSlice';
+import { fetchUserData, selectUserData } from '../../../slices/userSlice';
 import './Navbar.scss';
 
 const Navbar = () => {
   const user = useSelector(selectUserData);
   const dispatch = useDispatch();
 
-  const handleSignIn = async () => {
+  const handleSignIn = () => {
+    //dispatch(fetchUserData());
     window.open('http://localhost:5000/auth/google', '_self');
   };
 
