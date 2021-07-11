@@ -17,11 +17,11 @@ const Navbar = () => {
 
   const handleSignIn = () => {
     //dispatch(fetchUserData());
-    window.open('http://localhost:5000/auth/google', '_self');
+    window.open('https://ecommerce-app-axel.herokuapp.com/auth/google', '_self');
   };
 
   const handleLogOut = async () => {
-    window.open('http://localhost:5000/auth/logout', '_self');
+    window.open('https://ecommerce-app-axel.herokuapp.com/auth/logout', '_self');
   };
 
   const handleFilterChange = (e) => {
