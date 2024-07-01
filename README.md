@@ -1,5 +1,7 @@
 # A simple e-commerce web-app using the PERN stack (Postgres, Express, React, Node.js)
 
+Recent update: As heroku is no longer available (for free :sweat_smile:), I'veve made changes to deploy the application locally, and I'll record a video soon to demonstrate the live version :grin:
+
 ## This project is developed as an assignment for the Codecademy Full Stack Engineering Path.
 
 
