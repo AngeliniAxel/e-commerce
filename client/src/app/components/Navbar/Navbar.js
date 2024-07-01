@@ -8,7 +8,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setFilter } from '../../../slices/productsSlice';
-import { fetchUserData, selectUserData } from '../../../slices/userSlice';
+import { selectUserData } from '../../../slices/userSlice';
 import './Navbar.scss';
 
 const Navbar = () => {
@@ -17,11 +17,11 @@ const Navbar = () => {
 
   const handleSignIn = () => {
     //dispatch(fetchUserData());
-    window.open('https://ecommerce-app-axel.herokuapp.com/auth/google', '_self');
+    window.open('http://localhost:5000/auth/google', '_self');
   };
 
   const handleLogOut = async () => {
-    window.open('https://ecommerce-app-axel.herokuapp.com/auth/logout', '_self');
+    window.open('http://localhost:5000/auth/logout', '_self');
   };
 
   const handleFilterChange = (e) => {

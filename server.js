@@ -34,7 +34,8 @@ app.use(bodyParser.json());
 app.use(
   cookieSession({
     name: 'ecommerce-session',
-    keys: [process.env.COOKIE_KEY1, process.env.COOKIE_KEY1],
+    keys: [process.env.COOKIE_KEY1, process.env.COOKIE_KEY2],
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
   })
 );
 
