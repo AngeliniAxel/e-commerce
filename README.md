@@ -2,7 +2,24 @@
 
 Recent update: As heroku is no longer available (for free :sweat_smile:), I've made changes to deploy the application locally, and I'll record a video soon to demonstrate the live version :grin:
 
-## This project is developed as an assignment for the Codecademy Full Stack Engineering Path.
+## Live version example
+
+This is the initial view of the app
+![full view of the app](/img/full-view.jpeg)
+
+Responsive design that adapts to every screen
+![responsive design](/img/responsive.jpeg)
+
+You can filter products, updating redux state
+![filter products](/img/filter.jpeg)
+
+You can enter to a single product view and, if you are logged in (SSO with Google, note that it takes your profile picture and your name), you can add products to your cart.
+![single product view](/img/single-product.jpeg)
+
+You can add or remove products from your cart, and it is updated in the database
+![cart view](/img/cart.jpeg)
+
+### This project is developed as an assignment for the Codecademy Full Stack Engineering Path.
 
 
 
