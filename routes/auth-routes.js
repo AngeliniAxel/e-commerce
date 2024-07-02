@@ -28,7 +28,6 @@ router.get('/login/failed', (req, res) => {
 router.get('/logout', (req, res) => {
   req.session = null;
   req.user = null;
-  res.clearCookie('ecommerce-session');
   req.logout();
   res.redirect(CLIENT_HOME_PAGE_URL);
 });
@@ -38,6 +37,7 @@ router.get(
   '/google',
   passport.authenticate('google', {
     scope: ['profile', 'email'],
+    prompt: 'select_account',
   })
 );
 
