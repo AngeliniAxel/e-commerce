@@ -111,7 +111,7 @@ const Cart = () => {
                 <h3>Price: ${totalPrice},00</h3>
                 <Button className='btn-to-cart'>
                   <span style={{ fontWeight: 'bold' }}>Buy</span> (not really,
-                  just and academic project)
+                  just an academic project)
                 </Button>
               </div>
             </div>
