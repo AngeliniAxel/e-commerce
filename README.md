@@ -54,4 +54,4 @@ Recent update: As heroku is no longer available (for free :sweat_smile:), I've m
 
 Postgres database living inside Heroku
 
-![database squema squema](/server/database/squema.jpeg)
+![database squema squema](/database/squema.jpeg)
